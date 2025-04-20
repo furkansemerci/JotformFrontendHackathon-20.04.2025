@@ -4,6 +4,7 @@ function Navbar({ cartItemCount, toggleCart }) {
   return (
     <header className="navbar">
       <div className="logo">
+        
         <Link to="/"><h1>FestShopping</h1></Link>
       </div>
       <div className="cart-icon" onClick={toggleCart}>

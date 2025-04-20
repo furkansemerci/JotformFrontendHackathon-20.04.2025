@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchProductsFromJotForm } from '../services/api';
-import { DEMO_PRODUCTS } from '../constants/demoData';
+//import { DEMO_PRODUCTS } from '../constants/demoData';
 
 function useProducts() {
   const [products, setProducts] = useState([]);
@@ -16,8 +16,7 @@ function useProducts() {
       } catch (err) {
         setError(err.message);
         console.error("Failed to fetch products:", err);
-        // Fallback to demo products for development
-        setProducts(DEMO_PRODUCTS);
+        //setProducts(DEMO_PRODUCTS);
       } finally {
         setIsLoading(false);
       }

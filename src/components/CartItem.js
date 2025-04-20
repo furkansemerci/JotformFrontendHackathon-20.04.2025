@@ -1,7 +1,7 @@
 function CartItem({ item, removeFromCart, updateQuantity }) {
     return (
       <div className="cart-item">
-        <img src={item.image} alt={item.name} className="cart-item-image" />
+        <img src={JSON.parse(item.image)[0]} alt={item.name} className="cart-item-image" />
         <div className="cart-item-details">
           <h3>{item.name}</h3>
           <p>${item.price.toFixed(2)}</p>

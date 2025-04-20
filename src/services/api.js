@@ -13,14 +13,13 @@ export const fetchProductsFromJotForm = async () => {
     
     const data = await response.json();
     
-    // Transform the data to a product format
-    // Note: This transformation will depend on your JotForm structure
+   
     const formattedProducts = data.content.products.map(product => ({
       id: product.pid,
       name: product.name,
       price: parseFloat(product.price),
       description: product.description || '',
-      image: product.image || 'https://via.placeholder.com/150',
+      image: product.images 
     }));
     
     return formattedProducts;
