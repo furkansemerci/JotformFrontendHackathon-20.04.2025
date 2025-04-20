@@ -27,7 +27,8 @@ const Home = () => {
             <p>Using demo products instead.</p>
           </div>
         ) : (
-          <ProductList products={products} addToCart={addToCart} />
+          <ProductList products={products} addToCart={addToCart} removeFromCart={removeFromCart}
+          updateQuantity={updateQuantity} />
         )}
       </main>
 

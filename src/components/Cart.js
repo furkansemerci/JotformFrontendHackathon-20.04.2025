@@ -1,5 +1,6 @@
-import CartContent from './CartContent';
-import EmptyCart from './EmptyCart';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CartItem from './CartItem';
 
 function Cart({ cart, removeFromCart, updateQuantity, calculateTotal, toggleCart }) {
   return (
@@ -11,14 +12,31 @@ function Cart({ cart, removeFromCart, updateQuantity, calculateTotal, toggleCart
         </div>
         
         {cart.length === 0 ? (
-          <EmptyCart />
+          <div className="empty-cart">
+            <p>Your cart is empty</p>
+          </div>
         ) : (
-          <CartContent 
-            cart={cart} 
-            removeFromCart={removeFromCart} 
-            updateQuantity={updateQuantity} 
-            calculateTotal={calculateTotal} 
-          />
+          <>
+            <div className="cart-items">
+              {cart.map(item => (
+                <CartItem 
+                  key={item.id} 
+                  item={item} 
+                  removeFromCart={removeFromCart} 
+                  updateQuantity={updateQuantity} 
+                />
+              ))}
+            </div>
+            
+            <div className="cart-footer">
+              <div className="cart-total">
+                <h3>Total: ${calculateTotal().toFixed(2)}</h3>
+              </div>
+              <Link to="/checkout" className="checkout-button" onClick={toggleCart}>
+                Proceed to Checkout
+              </Link>
+            </div>
+          </>
         )}
       </div>
     </div>

@@ -1,4 +1,3 @@
-import { DEMO_PRODUCTS } from '../constants/demoData';
 import { JOTFORM_CONFIG } from '../config';
 
 export const fetchProductsFromJotForm = async () => {
